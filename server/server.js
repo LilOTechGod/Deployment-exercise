@@ -18,12 +18,14 @@ app.get('/',(req,res) => {
     res.sendFile(path.join(__dirname,'../public/index.html'))
 })
 
-app.get('/api/guitar', (req, res) => {
+app.get('/guitar', (req, res) => {
 
     try{
         nonExistentFunction()
     } catch(err) {
         rollbar.error(err)
+        rollbar.critical(err)
+        rollbar.warning(err)
         console.error(err)
     }
     res.status(200).send('Guitar')
