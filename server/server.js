@@ -19,7 +19,6 @@ app.get('/',(req,res) => {
 })
 
 app.get('/api/guitar', (req, res) => {
-    let {name} = req.body;
 
     try{
         nonExistentFunction()
@@ -27,6 +26,7 @@ app.get('/api/guitar', (req, res) => {
         rollbar.error(err)
         console.error(err)
     }
+    res.status(200).send('Guitar')
 })
 
 app.listen(4000, () => console.log(`server running on 4000`))
