@@ -24,8 +24,8 @@ app.get('/guitar', (req, res) => {
         nonExistentFunction()
     } catch(err) {
         rollbar.error(err)
-        rollbar.critical(err)
-        rollbar.warning(err)
+        rollbar.critical('Urgent fix now!', err)
+        rollbar.warning('Need fixed asap', err)
         console.error(err)
     }
     res.status(200).send('Guitar')
